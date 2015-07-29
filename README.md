@@ -15,7 +15,7 @@ classes - King, Rook, Bishop, Queen, Knight, Pawn
 	  void setPosition() 		
 	
  
-class player
+class Player
       King king
       Queen queen
       Bishop bishop[2]
@@ -30,7 +30,7 @@ class player
        	 
 		
 
-class chessboard
+class Chessboard
 	Player player1, player2;
 	updateLocation(texFilePath)
 	
