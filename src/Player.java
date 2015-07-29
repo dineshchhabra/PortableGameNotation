@@ -162,7 +162,29 @@ public class Player {
 		}
 	}
 	public void nextMove(String playerMove){
-		
+			
+		if(playerMove.equals("O-O")) {
+			if ( playerName.equals("w")) {
+				king.move(new Dimension(7,1));
+				rooks[1].move(new Dimension(6,1));
+			} else {
+				king.move(new Dimension(7,8));
+				rooks[1].move(new Dimension(6,8));
+			}
+			return;
+		}
+
+		if(playerMove.equals("O-O-O")) {
+			if ( playerName.equals("w")) {
+				king.move(new Dimension(3,1));
+				rooks[0].move(new Dimension(4,1));
+			} else {
+				king.move(new Dimension(3,8));
+				rooks[0].move(new Dimension(4,8));
+			}
+			return;
+		}
+	
 		if(!Character.isUpperCase(playerMove.charAt(0))){
 			playerMove = "P" + playerMove;
 		}
