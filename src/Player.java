@@ -7,6 +7,8 @@ public class Player {
 	private Rook rooks[];
 	private Knight knights[];
 	private Pawn pawns[];
+	
+	
 
 	public Player(char player){
 		if (player == 'w'){
@@ -53,6 +55,11 @@ public class Player {
 			pawns[6] = new Pawn("g7");
 			pawns[7] = new Pawn("h7");
 		}
+	}
+	
+	public void setCapture(Dimension dimension,Player player2)
+	{
+		
 	}
 	public void nextMove(String move){
 		
