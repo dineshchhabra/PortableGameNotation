@@ -36,7 +36,7 @@ class Player
        	 
 		
 
-class chessboard
+class Chessboard
 	Player player1, player2;
 	updateLocation(texFilePath)
 	
