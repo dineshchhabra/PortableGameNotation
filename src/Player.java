@@ -63,7 +63,7 @@ public class Player {
 	{
 		if(king.getValid())
 		{
-			System.out.println(" King -> "+king.getDimension().getx()+" - "+king.getDimension().gety());
+			System.out.println(" King -> "+Character.toString((char)(king.getDimension().getx()+'a'))+" - "+king.getDimension().gety());
 		}
 		else
 		{
@@ -72,7 +72,7 @@ public class Player {
 		}
 		if(queen.getValid())
 		{
-			System.out.println(" Queen -> "+queen.getDimension().getx()+" - "+queen.getDimension().gety());
+			System.out.println(" Queen -> "+Character.toString((char)(queen.getDimension().getx()+'a'))+" - "+queen.getDimension().gety());
 
 		}
 		else
@@ -85,7 +85,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Bishop"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+				System.out.println(" Bishop"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -100,12 +100,12 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Rook"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+				System.out.println(" Rook"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
 
 			}
 			else
 			{
-				System.out.println(" Rook ->"+i+" Dead");
+				System.out.println(" Rook ->"+i+" "+" Dead");
 
 			}
 			i++;
@@ -115,7 +115,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Knight"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+				System.out.println(" Knight"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -130,7 +130,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Pawn"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+				System.out.println(" Pawn"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
 
 			}
 			else
