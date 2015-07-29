@@ -1,27 +1,42 @@
-
-public class Bishop extends Pieces {
-
+public class Bishop extends Pieces{
+	
+	
 	Bishop(Dimension initialDimension)
 	{
 		this.setPosition(initialDimension);
 		this.setValid(true);
 	}
-
+	
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		
+		if(Math.abs(dstCoordinates.getx()-this.getDimension().getx()) == Math.abs(dstCoordinates.gety()-this.getDimension().gety()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	@Override
 	public void move(Dimension dstCoordinates) {
-		// TODO Auto-generated method stub
+		
+		this.getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
 		
 	}
 
 	@Override
-	public void captured(Dimension dstCoordinates) {
-		// TODO Auto-generated method stub
-		
+	public void setPosition(Dimension dstCoordinates) {
+		this.setPosition(dstCoordinates);
 	}
+	@Override
+	 public void captured(Dimension dstCoordinates){
+		if(this.getDimension().getx() == dstCoordinates.getx() && this.getDimension().gety() == dstCoordinates.gety()){
+			this.setValid(false);
+		}
+	}
+
 }
