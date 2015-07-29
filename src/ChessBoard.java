@@ -26,6 +26,11 @@ public class ChessBoard {
         		 player1.setCapture(blackMove);
         	 }
          }
+	
+	 public void display() {
+		player1.display();
+		player2.display();
+         } 
 
          public static void main(String[] args){
 
@@ -53,6 +58,7 @@ public class ChessBoard {
                                 ex.printStackTrace();
                         }
                 }
+		gameBoard.display();
          }
 }
 
