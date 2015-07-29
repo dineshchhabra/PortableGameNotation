@@ -23,7 +23,7 @@ public class ChessBoard {
         	 
         	 if(blackMove.contains("x"))
         	 {
-        		 player2.setCapture(blackMove);
+        		 player1.setCapture(blackMove);
         	 }
          }
 
