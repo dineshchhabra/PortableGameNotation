@@ -1,5 +1,11 @@
 
 public class Rook extends Pieces{
+	
+	Rook(Dimension initialDimension)
+	{
+		this.setPosition(initialDimension);
+		this.setValid(true);
+	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
