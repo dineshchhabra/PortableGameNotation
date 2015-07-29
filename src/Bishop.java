@@ -1,5 +1,12 @@
-
 public class Bishop extends Pieces{
+	
+	
+	Bishop(Dimension initialDimension)
+	{
+		this.setPosition(initialDimension);
+		this.setValid(true);
+	}
+	
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
@@ -23,8 +30,7 @@ public class Bishop extends Pieces{
 
 	@Override
 	public void setPosition(Dimension dstCoordinates) {
-		
-		
+		this.setPosition(dstCoordinates);
 	}
 	@Override
 	 public void captured(Dimension dstCoordinates){

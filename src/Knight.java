@@ -1,5 +1,11 @@
 
 public class Knight extends Pieces{
+	
+	Knight(Dimension initialDimension)
+	{
+		this.setPosition(initialDimension);
+		this.setValid(true);
+	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		

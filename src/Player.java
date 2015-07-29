@@ -7,13 +7,13 @@ public class Player {
 	private Rook rooks[];
 	private Knight knights[];
 	private Pawn pawns[];
-	private playerName;
+	private String playerName;
 	
 	
 
-	public Player(char player){
+	public Player(String player){
 		playerName = player;
-		if (player == 'w'){
+		if (player == "w"){
 			king = new King(new Dimension('d' - 'a' +1,1));
 			queen = new Queen(new Dimension('e' - 'a' +1,1));
 			bishops = new Bishop[2];

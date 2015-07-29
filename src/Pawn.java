@@ -57,7 +57,11 @@ public class Pawn extends Pieces{
 	@Override
 	public void captured(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
-		this.setValid(false);
+		if(this.getDimension().getx()==dstCoordinates.getx() && this.getDimension().gety()==dstCoordinates.gety())
+		{
+			this.setValid(false);
+		}
+		
 	}
 
 }

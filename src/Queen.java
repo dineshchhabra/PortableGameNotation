@@ -1,5 +1,11 @@
 
 public class Queen extends Pieces{
+	
+	Queen(Dimension initialDimension)
+	{
+		this.setPosition(initialDimension);
+		this.setValid(true);
+	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
