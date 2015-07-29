@@ -37,14 +37,13 @@ public class King extends Pieces{
 	public void move(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
 		
-		this.getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
-		
+		setDimension(dstCoordinates);
 	}
 
 	@Override
 	public void setPosition(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
-		
+		setDimension(dstCoordinates);
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class King extends Pieces{
 		// TODO Auto-generated method stub
 		if(dstCoordinates.getx()==this.getDimension().getx() && dstCoordinates.gety()==this.getDimension().gety())
 		{
-			this.setValid(false);
+			setValid(false);
 		}
 	}
 

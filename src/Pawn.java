@@ -50,10 +50,17 @@ public class Pawn extends Pieces{
 	public void move(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
 		
-		this.setPosition(dstCoordinates);
+		this.getDimension().set(dstCoordinates.getx(),dstCoordinates.gety());
+
 		
 	}
 
+	@Override
+	public void setPosition(Dimension dstCoordinates) {
+		
+		this.setDimension(dstCoordinates);
+	}
+	
 	@Override
 	public void captured(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub

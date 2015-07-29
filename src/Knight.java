@@ -3,18 +3,18 @@ public class Knight extends Pieces{
 	
 	Knight(Dimension initialDimension)
 	{
-		this.setPosition(initialDimension);
-		this.setValid(true);
+		setPosition(initialDimension);
+		setValid(true);
 	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
 		
-		if(Math.abs(dstCoordinates.getx()-this.getDimension().getx())==1 && Math.abs(dstCoordinates.gety()-this.getDimension().gety())==2)
+		if(Math.abs(dstCoordinates.getx()-getDimension().getx())==1 && Math.abs(dstCoordinates.gety()-getDimension().gety())==2)
 		{
 			return true;
 		}
-		else if(Math.abs(dstCoordinates.gety()-this.getDimension().gety())==1 && Math.abs(dstCoordinates.getx()-this.getDimension().getx())==2)
+		else if(Math.abs(dstCoordinates.gety()- getDimension().gety())==1 && Math.abs(dstCoordinates.getx()-getDimension().getx())==2)
 		{
 			return true;
 		}
@@ -35,12 +35,12 @@ public class Knight extends Pieces{
 	@Override
 	public void setPosition(Dimension dstCoordinates) {
 		
-		
+		this.setDimension(dstCoordinates);
 	}
 	@Override
 	 public void captured(Dimension dstCoordinates){
-		if(this.getDimension().getx() == dstCoordinates.getx() && this.getDimension().gety() == dstCoordinates.gety()){
-			this.setValid(false);
+		if(getDimension().getx() == dstCoordinates.getx() && getDimension().gety() == dstCoordinates.gety()){
+			setValid(false);
 		}
 	}
 

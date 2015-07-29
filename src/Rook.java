@@ -3,18 +3,18 @@ public class Rook extends Pieces{
 	
 	Rook(Dimension initialDimension)
 	{
-		this.setPosition(initialDimension);
-		this.setValid(true);
+		setPosition(initialDimension);
+		setValid(true);
 	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
 		
-		if(Math.abs(dstCoordinates.getx()-this.getDimension().getx())>=1 && Math.abs(dstCoordinates.gety()-this.getDimension().gety())==0)
+		if(Math.abs(dstCoordinates.getx()- getDimension().getx())>=1 && Math.abs(dstCoordinates.gety()- getDimension().gety())==0)
 		{
 			return true;
 		}
-		else if(Math.abs(dstCoordinates.gety()-this.getDimension().gety())>=1 && Math.abs(dstCoordinates.getx()-this.getDimension().getx())==0)
+		else if(Math.abs(dstCoordinates.gety()- getDimension().gety())>=1 && Math.abs(dstCoordinates.getx()- getDimension().getx())==0)
 		{
 			return true;
 		}
@@ -26,21 +26,19 @@ public class Rook extends Pieces{
 	}
 
 	@Override
-	public void move(Dimension dstCoordinates) {
-		
-		this.getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
+	public void move(Dimension dstCoordinates) {	
+		getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
 		
 	}
 
 	@Override
-	public void setPosition(Dimension dstCoordinates) {
-		
-		
+	public void setPosition(Dimension dstCoordinates) {	
+		setDimension(dstCoordinates);
 	}
 	@Override
 	 public void captured(Dimension dstCoordinates){
-		if(this.getDimension().getx() == dstCoordinates.getx() && this.getDimension().gety() == dstCoordinates.gety()){
-			this.setValid(false);
+		if(getDimension().getx() == dstCoordinates.getx() && getDimension().gety() == dstCoordinates.gety()){
+			setValid(false);
 		}
 	}
 
