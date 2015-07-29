@@ -1,14 +1,26 @@
 class Dimension {
-	 int x, y; 
-     public Dimension(int x, int y) {
+	 private int x, y; 
+	 Dimension (int x, int y) {
+		 this.x = x;
+		 this.y = y;
+	 }
+     public void set(int x, int y) {
     	 this.x=x;
     	 this.y=y;
      }
-     public int getx(){
+     public int getx() {
     	 return x;
      }
 
-     public int gety(){
+     public int gety() {
     	 return y;
+     }
+     public boolean compare(Dimension second) {
+    	 if (x == second.getx() && y == second.gety()) {
+    		 return true;
+    	 }
+    	 else {
+    		 return false;
+    	 }
      }
 }
