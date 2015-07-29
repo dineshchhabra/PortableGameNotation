@@ -59,9 +59,24 @@ public class Player {
 		}
 	}
 	
-	public void setCapture(Dimension dimension)
+	public void setCapture(String playerMove)
 	{
-		
+		String[] parts = playerMove.split("x");
+		Dimension captureDimension = new Dimension(parts[1].charAt(0), parts[1].charAt(1));
+		king.captured(captureDimension);
+		queen.captured(captureDimension);
+		for (Bishop bhops : bishops) {
+			bhops.captured(captureDimension);
+		}
+		for (Rook rook : rooks) {
+			rook.captured(captureDimension);
+		}
+		for (Knight knight : knights) {
+			knight.captured(captureDimension);
+		}
+		for (Pawn pawn : pawns) {
+			pawn.captured(captureDimension);
+		}
 	}
 	public void nextMove(String playerMove){
 		//char piece = 'p';
