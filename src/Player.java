@@ -1,6 +1,6 @@
 
 public class Player {
-<<<<<<< HEAD
+
 	private King king;
 	private Queen queen;
 	private Bishop bishops[];
@@ -10,61 +10,103 @@ public class Player {
 
 	public Player(char player){
 		if (player == 'w'){
-			king = new King("d1");
-			queen = new Queen("e1");
+			king = new King(new Dimension('d' - 'a' +1,1));
+			queen = new Queen(new Dimension('e' - 'a' +1,1));
 			bishops = new Bishop[2];
-			bishops[0] = new Bishop("c1");
-			bishops[1] = new Bishop("f1");
+			bishops[0] = new Bishop(new Dimension('c' - 'a' +1,1));
+			bishops[1] = new Bishop(new Dimension('f' - 'a' +1,1));
 			rooks = new Rook[2];
-			rooks[0] = new Rook("a1");
-			rooks[1] = new Rook("h1");
+			rooks[0] = new Rook(new Dimension('a' - 'a' +1,1));
+			rooks[1] = new Rook(new Dimension('h' - 'a' +1,1));
 			knights = new Knight[2];
-			knights[0] = new Knight("b1");
-			knights[1] = new Knight("g1");
+			knights[0] = new Knight(new Dimension('b' - 'a' +1,1));
+			knights[1] = new Knight(new Dimension('g' - 'a' +1,1));
 			pawns = new Pawn[8];
-			pawns[0] = new Pawn("a2");
-			pawns[1] = new Pawn("b2");
-			pawns[2] = new Pawn("c2");
-			pawns[3] = new Pawn("d2");
-			pawns[4] = new Pawn("e2");
-			pawns[5] = new Pawn("f2");
-			pawns[6] = new Pawn("g2");
-			pawns[7] = new Pawn("h2");
+			pawns[0] = new Pawn(new Dimension('a' - 'a' +1,2));
+			pawns[1] = new Pawn(new Dimension('b' - 'a' +1,2));
+			pawns[2] = new Pawn(new Dimension('c' - 'a' +1,2));
+			pawns[3] = new Pawn(new Dimension('d' - 'a' +1,2));
+			pawns[4] = new Pawn(new Dimension('e' - 'a' +1,2));
+			pawns[5] = new Pawn(new Dimension('f' - 'a' +1,2));
+			pawns[6] = new Pawn(new Dimension('g' - 'a' +1,2));
+			pawns[7] = new Pawn(new Dimension('h' - 'a' +1,2));
 		}
 		else{
-			king = new King("d8");
-			queen = new Queen("e8");
+			king = new King(new Dimension('d' - 'a' +1,8));
+			queen = new Queen(new Dimension('e' - 'a' +1,8));
 			bishops = new Bishop[2];
-			bishops[0] = new Bishop("c8");
-			bishops[1] = new Bishop("f8");
+			bishops[0] = new Bishop(new Dimension('c' - 'a' +1,8));
+			bishops[1] = new Bishop(new Dimension('f' - 'a' +1,8));
 			rooks = new Rook[2];
-			rooks[0] = new Rook("a8");
-			rooks[1] = new Rook("h8");
+			rooks[0] = new Rook(new Dimension('a' - 'a' +1,8));
+			rooks[1] = new Rook(new Dimension('h' - 'a' +1,8));
 			knights = new Knight[2];
-			knights[0] = new Knight("b8");
-			knights[1] = new Knight("g8");
+			knights[0] = new Knight(new Dimension('b' - 'a' +1,8));
+			knights[1] = new Knight(new Dimension('g' - 'a' +1,8));
 			pawns = new Pawn[8];
-			pawns[0] = new Pawn("a7");
-			pawns[1] = new Pawn("b7");
-			pawns[2] = new Pawn("c7");
-			pawns[3] = new Pawn("d7");
-			pawns[4] = new Pawn("e7");
-			pawns[5] = new Pawn("f7");
-			pawns[6] = new Pawn("g7");
-			pawns[7] = new Pawn("h7");
+			pawns[0] = new Pawn(new Dimension('a' - 'a' +1,7));
+			pawns[1] = new Pawn(new Dimension('b' - 'a' +1,7));
+			pawns[2] = new Pawn(new Dimension('c' - 'a' +1,7));
+			pawns[3] = new Pawn(new Dimension('d' - 'a' +1,7));
+			pawns[4] = new Pawn(new Dimension('e' - 'a' +1,7));
+			pawns[5] = new Pawn(new Dimension('f' - 'a' +1,7));
+			pawns[6] = new Pawn(new Dimension('g' - 'a' +1,7));
+			pawns[7] = new Pawn(new Dimension('h' - 'a' +1,7));
 		}
 	}
 	public void nextMove(String move){
+		//char piece = 'p';
+		//if(Character.isUpperCase(move.charAt(0))){
+		char piece = move.charAt(0);
+		String position;
+		int indexOfX = move.indexOf('x');
+		if(indexOfX == -1){
+			position = move.substring(1, 2);
+		}
+		else{
+			position = move.substring(indexOfX+1,indexOfX+2);
+		}
+		if(piece == 'P'){
+			for(int i=0;i<pawns.length;i++){
+				if(pawns[i].movePossible(position)){
+					pawns[i].move(position);
+					break;
+				}
+			}
+		}
+		if(piece == 'N'){
+			for(int i=0;i<knights.length;i++){
+				if(knights[i].movePossible(position)){
+					knights[i].move(position);
+					break;
+				}
+			}
+		}
+		if(piece == 'K'){
+			king.move(position);
+		}
+		if(piece == 'Q'){
+			queen.move(position);
+		}
+		if(piece == 'B'){
+			for(int i=0;i<bishops.length;i++){
+				if(bishops[i].movePossible(position)){
+					bishops[i].move(position);
+					break;
+				}
+			}
+		}
+		if(piece == 'R'){
+			for(int i=0;i<rooks.length;i++){
+				if(rooks[i].movePossible(position)){
+					rooks[i].move(position);
+					break;
+				}
+			}
+		}
+		//}
+			
 		
 	}
-=======
-<<<<<<< HEAD
 
-=======
-	King king Queen queen Bishop bishop[2] Rook rook[2] Knight knight[2]; Pawn pawn[8];
-
-	  Constructor - Update initial position
-	  nextMove( move)
->>>>>>> 2b0449ec19efa7fe644aec4050070bff540404a9
->>>>>>> origin/master
 }
