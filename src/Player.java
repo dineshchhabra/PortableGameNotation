@@ -87,11 +87,12 @@ public class Player {
 		String position;
 		int indexOfX = playerMove.indexOf('x');
 		if(indexOfX == -1){
-			position = playerMove.substring(1, 2);
+			position = playerMove.substring(1, 3);
 		}
 		else{
-			position = playerMove.substring(indexOfX+1,indexOfX+2);
+			position = playerMove.substring(indexOfX+1,indexOfX+3);
 		}
+		
 		Dimension currentPosition = null;
 		if(playerMove.length() >= 4){
 			char rowOrColumn = playerMove.charAt(indexOfX - 1);
