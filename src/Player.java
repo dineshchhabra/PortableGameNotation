@@ -87,45 +87,87 @@ public class Player {
 		}
 		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'a'+1);
 		if(piece == 'P'){
-			for(int i=0;i<pawns.length;i++){
-				if(pawns[i].movePossible(currentPosition,newPosition)){
-					pawns[i].move(newPosition);
-					break;
+			if(currentPosition != null){
+				for(int i=0;i<pawns.length;i++){
+					if(pawns[i].getDimension().getx() == currentPosition.getx() || pawns[i].getDimension().gety() == currentPosition.gety()){
+						pawns[i].move(newPosition);
+						break;
+					}
 				}
 			}
+			else{
+				for(int i=0;i<pawns.length;i++){
+					if(pawns[i].movePossible(newPosition)){
+						pawns[i].move(newPosition);
+						break;
+					}
+				}
+			}
+			
 		}
 		if(piece == 'N'){
-			for(int i=0;i<knights.length;i++){
-				if(knights[i].movePossible(currentPosition,newPosition)){
-					knights[i].move(newPosition);
-					break;
+			if(currentPosition != null){
+				for(int i=0;i<knights.length;i++){
+					if(knights[i].getDimension().getx() == currentPosition.getx() || knights[i].getDimension().gety() == currentPosition.gety()){
+						knights[i].move(newPosition);
+						break;
+					}
 				}
 			}
+			else{
+				for(int i=0;i<knights.length;i++){
+					if(knights[i].movePossible(newPosition)){
+						knights[i].move(newPosition);
+						break;
+					}
+				}
+			}
+			
 		}
 		if(piece == 'K'){
-			if(king.movePossible(currentPosition, newPosition)){
+			if(king.movePossible(newPosition)){
 				king.move(newPosition);
 			}
 			
 		}
 		if(piece == 'Q'){
-			if(queen.movePossible(currentPosition, newPosition)){
+			if(queen.movePossible(newPosition)){
 				queen.move(newPosition);
 			}
 		}
 		if(piece == 'B'){
-			for(int i=0;i<bishops.length;i++){
-				if(bishops[i].movePossible(currentPosition,newPosition)){
-					bishops[i].move(newPosition);
-					break;
+			if(currentPosition != null){
+				for(int i=0;i<bishops.length;i++){
+					if(bishops[i].getDimension().getx() == currentPosition.getx() || bishops[i].getDimension().gety() == currentPosition.gety()){
+						bishops[i].move(newPosition);
+						break;
+					}
+				}
+			}
+			else{
+				for(int i=0;i<bishops.length;i++){
+					if(bishops[i].movePossible(newPosition)){
+						bishops[i].move(newPosition);
+						break;
+					}
 				}
 			}
 		}
 		if(piece == 'R'){
-			for(int i=0;i<rooks.length;i++){
-				if(rooks[i].movePossible(currentPosition,newPosition)){
-					rooks[i].move(newPosition);
-					break;
+			if(currentPosition != null){
+				for(int i=0;i<rooks.length;i++){
+					if(rooks[i].getDimension().getx() == currentPosition.getx() || rooks[i].getDimension().gety() == currentPosition.gety()){
+						rooks[i].move(newPosition);
+						break;
+					}
+				}
+			}
+			else{
+				for(int i=0;i<rooks.length;i++){
+					if(rooks[i].movePossible(newPosition)){
+						rooks[i].move(newPosition);
+						break;
+					}
 				}
 			}
 		}
