@@ -1,16 +1,22 @@
 
 public class Pawn extends Pieces{
 
+	int stepCount;
 	Pawn(Dimension initialDiemension)
 	{
 		this.setPosition(initialDiemension);
+		stepCount=0;
 	}
 	@Override
-	public boolean movePosible(Dimension dstCoordinates) {
+	public boolean movePossible(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
 		if(!this.getValid())
 		{
 			return false;
+		}
+		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2)
+		{
+			return true;
 		}
 		if(Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 1)
 		{
@@ -19,11 +25,15 @@ public class Pawn extends Pieces{
 		return false;
 	}
 	
-	public boolean movePosible(Dimension dstCoordinates,boolean obstacle) {
+	public boolean movePossible(Dimension dstCoordinates,boolean obstacle) {
 		// TODO Auto-generated method stub
 		if(!this.getValid())
 		{
 			return false;
+		}
+		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2)
+		{
+			return true;
 		}
 		if((Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 1) && !obstacle)
 		{
