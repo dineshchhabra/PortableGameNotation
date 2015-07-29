@@ -59,7 +59,7 @@ public class Player {
 		}
 	}
 	
-	public void setCapture(Dimension dimension,Player player2)
+	public void setCapture(Dimension dimension)
 	{
 		
 	}

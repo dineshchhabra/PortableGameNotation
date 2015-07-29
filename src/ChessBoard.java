@@ -3,11 +3,23 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 public class ChessBoard {
-        // private Player player1, player2;
+         private Player player1, player2;
 
-
+         ChessBoard()
+         {
+        	 player1 = new Player("w"); 
+        	 player2 = new Player("b"); 
+         }
          public void updateLocation(String whiteMove, String blackMove) {
-
+        	 
+        	 player1.nextMove(whiteMove);
+        	 
+        	 if(whiteMove.contains("x"))
+        	 {
+        		 player2.setCapture(whiteMove);
+        	 }
+        	 player2.nextMove(blackMove);
+     
          }
 
          public static void main(String[] args){
