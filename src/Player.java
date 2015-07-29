@@ -59,6 +59,89 @@ public class Player {
 		}
 	}
 	
+	public void display()
+	{
+		if(king.getValid())
+		{
+			System.out.println(" King -> "+king.getDimension().getx()+" - "+king.getDimension().gety());
+		}
+		else
+		{
+			System.out.println(" King -> Dead");
+
+		}
+		if(queen.getValid())
+		{
+			System.out.println(" Queen -> "+queen.getDimension().getx()+" - "+queen.getDimension().gety());
+
+		}
+		else
+		{
+			System.out.println(" Queen -> Dead");
+
+		}
+		int i=0;
+		for(Bishop current: bishops)
+		{
+			if(current.getValid())
+			{
+				System.out.println(" Bishop"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+
+			}
+			else
+			{
+				System.out.println(" Bishop ->"+i+" Dead");
+
+			}
+			i++;
+		}
+		i=0;
+		for(Rook current: rooks)
+		{
+			if(current.getValid())
+			{
+				System.out.println(" Rook"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+
+			}
+			else
+			{
+				System.out.println(" Rook ->"+i+" Dead");
+
+			}
+			i++;
+		}
+		i=0;
+		for(Knight current: knights)
+		{
+			if(current.getValid())
+			{
+				System.out.println(" Knight"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+
+			}
+			else
+			{
+				System.out.println(" Knight ->"+i+" Dead");
+
+			}
+			i++;
+		}
+		i=0;
+		for(Pawn current: pawns)
+		{
+			if(current.getValid())
+			{
+				System.out.println(" Pawn"+i+current.getDimension().getx()+" - "+current.getDimension().gety());
+
+			}
+			else
+			{
+				System.out.println(" Pawn ->"+i+" Dead");
+
+			}
+			i++;
+		}
+	}
+	
 	public void setCapture(String playerMove)
 	{
 		String[] parts = playerMove.split("x");
