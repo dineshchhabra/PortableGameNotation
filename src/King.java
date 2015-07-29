@@ -1,6 +1,12 @@
 
 public class King extends Pieces{
 
+	King(Dimension initialDimension)
+	{
+		this.setPosition(initialDimension);
+		this.setValid(true);
+	}
+	
 	@Override
 	public boolean movePosible(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
