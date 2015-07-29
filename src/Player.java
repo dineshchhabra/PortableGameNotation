@@ -103,10 +103,15 @@ public class Player {
 			}
 		}
 		if(piece == 'K'){
-			king.move(newPosition);
+			if(king.movePossible(currentPosition, newPosition)){
+				king.move(newPosition);
+			}
+			
 		}
 		if(piece == 'Q'){
-			queen.move(newPosition);
+			if(queen.movePossible(currentPosition, newPosition)){
+				queen.move(newPosition);
+			}
 		}
 		if(piece == 'B'){
 			for(int i=0;i<bishops.length;i++){
