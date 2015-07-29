@@ -31,5 +31,11 @@ public class King extends Pieces{
 		
 	}
 
+	@Override
+	public void setPosition(Dimension dstCoordinates) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
