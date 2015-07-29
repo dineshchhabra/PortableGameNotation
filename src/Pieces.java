@@ -8,7 +8,7 @@
 		valid = true;
 	}
 	
-    public abstract boolean movePosible(Dimension dstCoordinates);
+    public abstract boolean movePossible(Dimension dstCoordinates);
     public abstract void move(Dimension dstCoordinates);
     public void setPosition(Dimension dstCoordinates)
     {
@@ -17,12 +17,12 @@
     public abstract void captured(Dimension dstCoordinates);
     public  boolean getValid()
     {
-		return vaild;
+		return valid;
     	
     }
     public void setValid(boolean valid)
     {
-		this.vaild = valid;
+		this.valid = valid;
     	
     }
     public Dimension getDimension()

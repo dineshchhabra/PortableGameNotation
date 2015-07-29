@@ -2,7 +2,7 @@
 public class King extends Pieces{
 
 	@Override
-	public boolean movePosible(Dimension dstCoordinates) {
+	public boolean movePossible(Dimension dstCoordinates) {
 		// TODO Auto-generated method stub
 		
 		if(!this.getValid())
