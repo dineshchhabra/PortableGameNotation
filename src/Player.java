@@ -80,7 +80,9 @@ public class Player {
 	}
 	public void nextMove(String playerMove){
 		//char piece = 'p';
-		//if(Character.isUpperCase(move.charAt(0))){
+		if(!Character.isUpperCase(playerMove.charAt(0))){
+			playerMove = "P" + playerMove;
+		}
 		char piece = playerMove.charAt(0);
 		String position;
 		int indexOfX = playerMove.indexOf('x');
