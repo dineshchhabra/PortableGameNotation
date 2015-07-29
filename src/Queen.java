@@ -38,7 +38,7 @@ public class Queen extends Pieces{
 	@Override
 	public void setPosition(Dimension dstCoordinates) {
 		
-		
+		this.setDimension(dstCoordinates);
 	}
 	@Override
 	 public void captured(Dimension dstCoordinates){

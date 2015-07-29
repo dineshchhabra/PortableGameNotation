@@ -18,8 +18,13 @@ public class ChessBoard {
         	 {
         		 player2.setCapture(whiteMove);
         	 }
+        	 
         	 player2.nextMove(blackMove);
-     
+        	 
+        	 if(blackMove.contains("x"))
+        	 {
+        		 player2.setCapture(blackMove);
+        	 }
          }
 
          public static void main(String[] args){
@@ -30,7 +35,7 @@ public class ChessBoard {
                 try {
                         String sCurrentLine;
 
-                        br = new BufferedReader(new FileReader("/home/dinesh/PortableGameNotation/testing.txt"));
+                        br = new BufferedReader(new FileReader("testing.txt"));
 
                         while ((sCurrentLine = br.readLine()) != null) {
                                 String[] parts = sCurrentLine.split(" ");

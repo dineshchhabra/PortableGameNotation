@@ -3,15 +3,15 @@ public class Bishop extends Pieces{
 	
 	Bishop(Dimension initialDimension)
 	{
-		this.setPosition(initialDimension);
-		this.setValid(true);
+		setPosition(initialDimension);
+		setValid(true);
 	}
 	
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
 		
-		if(Math.abs(dstCoordinates.getx()-this.getDimension().getx()) == Math.abs(dstCoordinates.gety()-this.getDimension().gety()))
+		if(Math.abs(dstCoordinates.getx()-getDimension().getx()) == Math.abs(dstCoordinates.gety()-getDimension().gety()))
 		{
 			return true;
 		}
@@ -24,17 +24,17 @@ public class Bishop extends Pieces{
 	@Override
 	public void move(Dimension dstCoordinates) {
 		
-		this.getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
+		getDimension().set(dstCoordinates.getx(), dstCoordinates.gety());
 		
 	}
 
 	@Override
 	public void setPosition(Dimension dstCoordinates) {
-		this.setPosition(dstCoordinates);
+		setDimension(dstCoordinates);
 	}
 	@Override
 	 public void captured(Dimension dstCoordinates){
-		if(this.getDimension().getx() == dstCoordinates.getx() && this.getDimension().gety() == dstCoordinates.gety()){
+		if(getDimension().getx() == dstCoordinates.getx() && getDimension().gety() == dstCoordinates.gety()){
 			this.setValid(false);
 		}
 	}

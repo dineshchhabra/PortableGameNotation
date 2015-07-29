@@ -5,6 +5,7 @@
 	private boolean valid;
 
 	Pieces(){
+		pos = new Dimension(0, 0);
 		valid = true;
 	}
 	
@@ -15,6 +16,11 @@
     	pos.set(dstCoordinates.getx(), dstCoordinates.gety());
     }
     public abstract void captured(Dimension dstCoordinates);
+    
+    public void setDimension(Dimension dstCoordinates)
+    {
+    	pos.set(dstCoordinates.getx(), dstCoordinates.gety());
+    }
     public  boolean getValid()
     {
 		return valid;
@@ -27,6 +33,6 @@
     }
     public Dimension getDimension()
     {
-    	return this.pos;
+    	return pos;
     }
 }
