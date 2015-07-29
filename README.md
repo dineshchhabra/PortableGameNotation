@@ -1,5 +1,5 @@
 # PortableGameNotation
-Class Design
+Class Design ---------------------------
 
 class Dimension
 	int x, y coordinates
@@ -7,15 +7,21 @@ class Dimension
 	get()
 	
 
+class Pieces 
+	  Dimension pos;
+ 	  virtual boolean movePosible(dstCoordinates) =0;
+	  virtual void move(dstCoordinates)=0	
+	  virtual void setPosition() =0		
 
-classes - King, Rook, Bishop, Queen, Knight, Pawn	
+
+classes - King, Rook, Bishop, Queen, Knight, Pawn extends Pieces	
 	  Dimension pos;
  	  boolean movePosible(dstCoordinates)
 	  void move(dstCoordinates)	
 	  void setPosition() 		
 	
  
-class player
+class Player
       King king
       Queen queen
       Bishop bishop[2]
