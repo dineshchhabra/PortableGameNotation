@@ -67,7 +67,7 @@ public class Player {
 		}
 		else
 		{
-			System.out.println(" King -> Dead");
+			System.out.println(" King Dead");
 
 		}
 		if(queen.getValid())
@@ -77,7 +77,7 @@ public class Player {
 		}
 		else
 		{
-			System.out.println(" Queen -> Dead");
+			System.out.println(" Queen  Dead");
 
 		}
 		int i=0;
@@ -90,7 +90,7 @@ public class Player {
 			}
 			else
 			{
-				System.out.println(" Bishop ->"+i+" Dead");
+				System.out.println(" Bishop"+i+" Dead");
 
 			}
 			i++;
@@ -105,7 +105,7 @@ public class Player {
 			}
 			else
 			{
-				System.out.println(" Rook ->"+i+" "+" Dead");
+				System.out.println(" Rook"+i+" "+" Dead");
 
 			}
 			i++;
@@ -120,7 +120,7 @@ public class Player {
 			}
 			else
 			{
-				System.out.println(" Knight ->"+i+" Dead");
+				System.out.println(" Knight"+i+" Dead");
 
 			}
 			i++;
@@ -135,7 +135,7 @@ public class Player {
 			}
 			else
 			{
-				System.out.println(" Pawn ->"+i+" Dead");
+				System.out.println(" Pawn"+i+" Dead");
 
 			}
 			i++;
@@ -145,11 +145,13 @@ public class Player {
 	public void setCapture(String playerMove)
 	{
 		String[] parts = playerMove.split("x");
-		Dimension captureDimension = new Dimension(parts[1].charAt(0), parts[1].charAt(1));
+		Dimension captureDimension = new Dimension(parts[1].charAt(0)-'a'+1, parts[1].charAt(1)-'1'+1);
+		
 		king.captured(captureDimension);
 		queen.captured(captureDimension);
 		for (Bishop bhops : bishops) {
-			bhops.captured(captureDimension);
+			bhops.captured(captureDimension);System.out.println(captureDimension.getx()+" "+captureDimension.gety());
+			System.out.println(bhops.getValid());
 		}
 		for (Rook rook : rooks) {
 			rook.captured(captureDimension);
@@ -162,7 +164,7 @@ public class Player {
 		}
 	}
 	public void nextMove(String playerMove){
-			
+			System.out.println(playerMove);
 		if(playerMove.equals("O-O")) {
 			if ( playerName.equals("w")) {
 				king.move(new Dimension(7,1));
@@ -192,15 +194,22 @@ public class Player {
 		String position;
 		int indexOfX = playerMove.indexOf('x');
 		if(indexOfX == -1){
-			position = playerMove.substring(1, 3);
+			if(playerMove.length() >= 4){
+				position = playerMove.substring(2, 4);
+			}
+			else{
+				position = playerMove.substring(1, 3);
+			}
 		}
 		else{
 			position = playerMove.substring(indexOfX+1,indexOfX+3);
 		}
-		
+		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'1'+1);
+
 		Dimension currentPosition = null;
-		if(playerMove.length() >= 4){
-			char rowOrColumn = playerMove.charAt(indexOfX - 1);
+		if(playerMove.length() >= 4 ){
+			char rowOrColumn = playerMove.charAt(1);
+						
 			if(Character.isAlphabetic(rowOrColumn)){
 				currentPosition = new Dimension(rowOrColumn - 'a'+ 1, -1);
 			}
@@ -208,7 +217,6 @@ public class Player {
 				currentPosition = new Dimension(-1, rowOrColumn - 'a'+ 1);
 			}
 		}
-		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'1'+1);
 		
 		if(piece == 'P'){
 			if(currentPosition != null){

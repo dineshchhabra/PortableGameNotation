@@ -46,6 +46,7 @@ public class ChessBoard {
                                 String[] parts = sCurrentLine.split(" ");
 
                                 for( int i = 0 ; i < parts.length ;i = i+3) {
+                                	
                                         gameBoard.updateLocation(parts[i+1],parts[i+2]);
                                 }
                         }
