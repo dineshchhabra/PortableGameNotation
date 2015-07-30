@@ -3,7 +3,7 @@ public class Player {
 
 	private King king;
 	private Queen queen;
-	private Bishop bishops[];
+	 Bishop bishops[];
 	private Rook rooks[];
 	private Knight knights[];
 	private Pawn pawns[];
@@ -150,8 +150,7 @@ public class Player {
 		king.captured(captureDimension);
 		queen.captured(captureDimension);
 		for (Bishop bhops : bishops) {
-			bhops.captured(captureDimension);System.out.println(captureDimension.getx()+" "+captureDimension.gety());
-			System.out.println(bhops.getValid());
+			bhops.captured(captureDimension);
 		}
 		for (Rook rook : rooks) {
 			rook.captured(captureDimension);
@@ -164,7 +163,7 @@ public class Player {
 		}
 	}
 	public void nextMove(String playerMove){
-			System.out.println(playerMove);
+			
 		if(playerMove.equals("O-O")) {
 			if ( playerName.equals("w")) {
 				king.move(new Dimension(7,1));
@@ -207,7 +206,7 @@ public class Player {
 		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'1'+1);
 
 		Dimension currentPosition = null;
-		if(playerMove.length() >= 4 ){
+		if(indexOfX != 1 && playerMove.length() >=4){
 			char rowOrColumn = playerMove.charAt(1);
 						
 			if(Character.isAlphabetic(rowOrColumn)){

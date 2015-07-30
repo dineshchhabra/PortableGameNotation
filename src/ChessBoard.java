@@ -14,7 +14,6 @@ public class ChessBoard {
 	public void updateLocation(String whiteMove, String blackMove) {
 
 			player1.nextMove(whiteMove);
-
 			if (whiteMove.contains("x")) {
 				player2.setCapture(whiteMove);
 			}
@@ -80,7 +79,6 @@ public class ChessBoard {
 					else if(!gameBoard.isEndCondition(parts[i+1]) && gameBoard.isEndCondition(parts[i+2]))
 					{
 						gameBoard.updateLocation(parts[i+1], "");
-						System.out.println(gameBoard.gameResult(parts[i+2]));
 					}
 				}
 			}

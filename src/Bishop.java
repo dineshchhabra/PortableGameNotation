@@ -10,7 +10,6 @@ public class Bishop extends Pieces{
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
 		
-		
 		if(Math.abs(dstCoordinates.getx()-getDimension().getx()) == Math.abs(dstCoordinates.gety()-getDimension().gety()))
 		{
 			return true;
