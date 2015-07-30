@@ -16,12 +16,9 @@ public class Pawn extends Pieces{
 		{
 			return false;
 		}
-<<<<<<< HEAD
-		
-		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2)
-=======
+
 		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2 && dstCoordinates.getx() == this.getDimension().getx())
->>>>>>> 473441f81fd342d36fc1975f9a0e6fe98f96e920
+
 		{
 			stepCount++;
 			return true;
