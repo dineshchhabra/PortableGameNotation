@@ -9,19 +9,24 @@ public class Pawn extends Pieces{
 	}
 	@Override
 	public boolean movePossible(Dimension dstCoordinates) {
+		
 		// TODO Auto-generated method stub
 		//System.out.println(" Possible-> "+this.getValid()+" "+dstCoordinates.getx());
 		if(!this.getValid())
 		{
 			return false;
 		}
+<<<<<<< HEAD
 		
 		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2)
+=======
+		if(stepCount==0 && Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 2 && dstCoordinates.getx() == this.getDimension().getx())
+>>>>>>> 473441f81fd342d36fc1975f9a0e6fe98f96e920
 		{
 			stepCount++;
 			return true;
 		}
-		if(Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 1)
+		if(Math.abs(dstCoordinates.gety()-this.getDimension().gety()) == 1 && dstCoordinates.getx() == this.getDimension().getx())
 		{
 			stepCount++;
 			return true;

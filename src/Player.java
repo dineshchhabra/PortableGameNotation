@@ -63,7 +63,7 @@ public class Player {
 	{
 		if(king.getValid())
 		{
-			System.out.println(" King -> "+Character.toString((char)(king.getDimension().getx()+'a'))+" - "+king.getDimension().gety());
+			System.out.println(" King -> "+Character.toString((char)(king.getDimension().getx()+'a' - 1))+" - "+king.getDimension().gety());
 		}
 		else
 		{
@@ -72,7 +72,7 @@ public class Player {
 		}
 		if(queen.getValid())
 		{
-			System.out.println(" Queen -> "+Character.toString((char)(queen.getDimension().getx()+'a'))+" - "+queen.getDimension().gety());
+			System.out.println(" Queen -> "+Character.toString((char)(queen.getDimension().getx()+'a' - 1))+" - "+queen.getDimension().gety());
 
 		}
 		else
@@ -85,7 +85,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Bishop"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
+				System.out.println(" Bishop"+i+" "+Character.toString((char)(current.getDimension().getx()+'a' - 1))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -100,7 +100,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Rook"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
+				System.out.println(" Rook"+i+" "+Character.toString((char)(current.getDimension().getx()+'a' - 1))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -115,7 +115,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Knight"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
+				System.out.println(" Knight"+i+" "+Character.toString((char)(current.getDimension().getx()+'a' - 1))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -130,7 +130,7 @@ public class Player {
 		{
 			if(current.getValid())
 			{
-				System.out.println(" Pawn"+i+" "+Character.toString((char)(current.getDimension().getx()+'a'))+" - "+current.getDimension().gety());
+				System.out.println(" Pawn"+i+" "+Character.toString((char)(current.getDimension().getx()+'a' - 1))+" - "+current.getDimension().gety());
 
 			}
 			else
@@ -162,7 +162,29 @@ public class Player {
 		}
 	}
 	public void nextMove(String playerMove){
-		//char piece = 'p';
+			
+		if(playerMove.equals("O-O")) {
+			if ( playerName.equals("w")) {
+				king.move(new Dimension(7,1));
+				rooks[1].move(new Dimension(6,1));
+			} else {
+				king.move(new Dimension(7,8));
+				rooks[1].move(new Dimension(6,8));
+			}
+			return;
+		}
+
+		if(playerMove.equals("O-O-O")) {
+			if ( playerName.equals("w")) {
+				king.move(new Dimension(3,1));
+				rooks[0].move(new Dimension(4,1));
+			} else {
+				king.move(new Dimension(3,8));
+				rooks[0].move(new Dimension(4,8));
+			}
+			return;
+		}
+	
 		if(!Character.isUpperCase(playerMove.charAt(0))){
 			playerMove = "P" + playerMove;
 		}
@@ -186,7 +208,8 @@ public class Player {
 				currentPosition = new Dimension(-1, rowOrColumn - 'a'+ 1);
 			}
 		}
-		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'a'+1);
+		Dimension newPosition = new Dimension(position.charAt(0)-'a'+1,position.charAt(1)-'1'+1);
+		
 		if(piece == 'P'){
 			if(currentPosition != null){
 				for(int i=0;i<pawns.length;i++){
@@ -199,6 +222,7 @@ public class Player {
 			else{
 				for(int i=0;i<pawns.length;i++){
 					if(pawns[i].movePossible(newPosition)){
+						
 						pawns[i].move(newPosition);
 						break;
 					}
