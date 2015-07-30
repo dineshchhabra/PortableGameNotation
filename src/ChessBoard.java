@@ -28,12 +28,9 @@ public class ChessBoard {
 
 	 public  boolean isEndCondition(String condition)
 	 {
-		 if(condition.equals("1-0") || condition.equals("0-1") || condition.equals("1/2-1/2"))
-		 {
-			 return true;
-		 }
-		return false;
+		 return (condition.equals("1-0") || condition.equals("0-1") || condition.equals("1/2-1/2")) ;
 	 }
+	 
 	 public  String gameResult(String condition)
 	 {
 		 if(condition.equals("1-0"))
